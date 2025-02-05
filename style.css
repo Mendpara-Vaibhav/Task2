@@ -1,0 +1,21 @@
+form > div {
+  margin: 10px;
+}
+
+td,
+th {
+  border: 1px solid black;
+}
+
+.row {
+  display: flex;
+  padding: 5px;
+}
+
+.column {
+  flex: 50%;
+}
+
+.submit-btn {
+  text-align: center;
+}

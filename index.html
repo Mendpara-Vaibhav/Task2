@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <form id="form" onsubmit="event.preventDefault(); onFormSubmit(); ">
+            <div>
+              <label for="country">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="type">Type:</label>
+              <select name="type" id="type" required>
+                <option value="">Select One</option>
+                <option value="Country">Country</option>
+                <option value="City">City</option>
+              </select>
+            </div>
+            <div class="submit-btn">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <div class="row">
+      <div class="column">
+        <table>
+          <thead>
+            <tr>
+              <th>Country</th>
+              <th>Btn</th>
+            </tr>
+          </thead>
+          <tbody id="countryTable"></tbody>
+        </table>
+      </div>
+
+      <div class="column">
+        <table>
+          <thead>
+            <tr>
+              <th>City</th>
+              <th>Btn</th>
+            </tr>
+          </thead>
+          <tbody id="cityTable"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
