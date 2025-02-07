@@ -4,8 +4,6 @@ let selectedRowIndex = null;
 function onFormSubmit() {
   let formData = readFormData();
   console.log(formData);
-  // console.log(formData.name);
-  // console.log(formData.type);
 
   arrList.push(formData);
 
@@ -31,7 +29,7 @@ function countryTable() {
     .forEach((element, index) => {
       html += `<tr>`;
       html += `<td>${element.name}</td>`;
-      html += `<td>${`<button onclick=onShift(${index}) >Shift</button>`}</td>`;
+      html += `<td>${`<button onclick=onShift(${index},'Country') >Shift</button>`}</td>`;
       html += `</tr>`;
     });
 
@@ -47,7 +45,7 @@ function cityTable() {
     .forEach((element, index) => {
       html += `<tr>`;
       html += `<td>${element.name}</td>`;
-      html += `<td>${`<button onclick=onShift(${index}) >Shift</button>`}</td>`;
+      html += `<td>${`<button onclick=onShift(${index},'City') >Shift</button>`}</td>`;
       html += `</tr>`;
     });
 
@@ -59,25 +57,16 @@ function resetForm() {
   selectedRowIndex = null;
 }
 
-// function onEdit(index) {
-//   selectedRowIndex = index;
-//   let selectedRow = arrList[index];
-//   document.getElementById("country").value = selectedRow.country;
-//   document.getElementById("city").value = selectedRow.city;
-// }
+function onShift(index, type) {
+  console.log(type);
+  let arr = arrList.filter((data) => data.type == type);
+  console.log(arr);
 
-// function updateData(formData) {
-//   arrList[selectedRowIndex] = formData;
-//   updateTable();
-//   selectedRowIndex = null;
-// }
-
-// function onDelete(index) {
-//   if (confirm("Are you sure you want to delete")) {
-//     arrList.splice(index, 1);
-//     updateTable();
-//     resetForm();
-//   }
-// }
-
-function onShift(index) {}
+  if (arr[index].type === "Country") {
+    arr[index].type = "City";
+  } else {
+    arr[index].type = "Country";
+  }
+  countryTable();
+  cityTable();
+}
